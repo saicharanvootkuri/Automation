@@ -18,7 +18,7 @@ public class BrokenLinks {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 
-		driver.get("https://testpages.eviltester.com/styled/index.html");
+		driver.get("https://demo.guru99.com/test/newtours/");
 
 		List<WebElement> allLinks = driver.findElements(By.tagName("a"));
 		log.info("Total links on the web page: " + allLinks.size());
