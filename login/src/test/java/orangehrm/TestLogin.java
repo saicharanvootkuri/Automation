@@ -26,7 +26,7 @@ public class TestLogin {
 	}
 
 	private static void login(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
 
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login ");
 		driver.manage().window().maximize();
@@ -49,15 +49,13 @@ public class TestLogin {
 	}
 
 	private static void navigateToJobTitlePage(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewJobTitleList");
 
 		log.info("Navigated to the Job Titles page.");
 	}
 
 	private static void addJobTitle(WebDriver driver, String jobTitle, String jobDescription) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
 
 		WebElement addButton = wait
 				.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("button.oxd-button--medium")));
