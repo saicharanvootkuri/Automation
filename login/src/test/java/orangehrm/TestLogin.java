@@ -20,8 +20,8 @@ public class TestLogin {
 		WebDriver driver = new EdgeDriver();
 		login(driver);
 		navigateToJobTitlePage(driver);
-		addJobTitle(driver, "SDE", "Responsible for software development");
-		Thread.sleep(5000); // Add this to keep the page open for 5 seconds (adjust as needed)
+		addJobTitle(driver, "abc", "xyz");
+		Thread.sleep(5000);
 		driver.quit();
 	}
 
@@ -60,23 +60,24 @@ public class TestLogin {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		WebElement addButton = wait
-				.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("button[data-v-10d463b7='']")));
+				.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("button.oxd-button--medium")));
 		wait.until(ExpectedConditions.elementToBeClickable(addButton)).click();
 
 		log.info("Navigated to the Add Job Title page.");
 
-		WebElement jobTitleField = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.oxd-input--active")));
+		WebElement jobTitleField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//div[@class='' and @data-v-957b4417='']//input[@class='oxd-input oxd-input--active']")));
 		jobTitleField.sendKeys(jobTitle);
 
 		WebElement jobDescriptionField = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("textarea.oxd-textarea--active")));
 		jobDescriptionField.sendKeys(jobDescription);
 
-		WebElement saveButton = wait
-				.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.oxd-button--medium")));
+		WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space' and @data-v-10d463b7='']")));
 		saveButton.click();
 
 		log.info("Job Title added successfully.");
 	}
+
 }
