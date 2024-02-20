@@ -20,13 +20,13 @@ public class TestLocation {
 		WebDriver driver = new EdgeDriver();
 		login(driver);
 		navigateToLocations(driver);
-		addLocation(driver, "kokapet", "Hyderabad", "Telangana", "12345", "India", "1234567890", "gandipet");
+		addLocation(driver, "kokapet", "hyderabad", "Telangana", "500075", "India", "1234568778", "golden mile road");
 		Thread.sleep(5000);
 		driver.quit();
 	}
 
 	private static void login(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
 
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login ");
 		driver.manage().window().maximize();
@@ -80,8 +80,12 @@ public class TestLocation {
 				.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[3]/div/div[2]/input");
 		WebElement zipCodeField = wait.until(ExpectedConditions.presenceOfElementLocated(zipCodeFieldLocator));
 
-		By countryDropdownLocator = By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]");
-		WebElement countryDropdown = wait.until(ExpectedConditions.presenceOfElementLocated(countryDropdownLocator));
+		WebElement userRoleDropdown = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[4]/div/div[2]/div/div")));
+		userRoleDropdown.click();
+		WebElement userRoleOption = wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(), '" + country + "')]")));
+		userRoleOption.click();
 
 		By phoneFieldLocator = By
 				.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[5]/div/div[2]/input");
@@ -97,11 +101,6 @@ public class TestLocation {
 		zipCodeField.sendKeys(postalCode);
 		phoneField.sendKeys(phoneNumber);
 		addressField.sendKeys(address);
-
-		countryDropdown.click();
-		WebElement countryOption = wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("//div[@class='oxd-dropdown']/div[contains(text(),'" + country + "')]")));
-		countryOption.click();
 
 		WebElement saveButton = driver
 				.findElement(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]"));
