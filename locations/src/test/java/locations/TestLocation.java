@@ -20,14 +20,13 @@ public class TestLocation {
 		WebDriver driver = new EdgeDriver();
 		login(driver);
 		navigateToLocations(driver);
-		addLocation(driver, "Dummy Location", "Dummy City", "Dummy State", "12345", "India", "1234567890",
-				"Dummy Address");
+		addLocation(driver, "kokapet", "Hyderabad", "Telangana", "12345", "India", "1234567890", "gandipet");
 		Thread.sleep(5000);
 		driver.quit();
 	}
 
 	private static void login(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login ");
 		driver.manage().window().maximize();
@@ -57,7 +56,7 @@ public class TestLocation {
 
 	private static void addLocation(WebDriver driver, String name, String city, String state, String postalCode,
 			String country, String phoneNumber, String address) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 
 		WebElement addButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
 				"//button[@class='oxd-button oxd-button--medium oxd-button--secondary' and @data-v-10d463b7='']")));
@@ -65,34 +64,48 @@ public class TestLocation {
 
 		log.info("Navigated to the Add Location page.");
 
-		WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("location_name")));
+		By nameFieldLocator = By
+				.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/input");
+		WebElement nameField = wait.until(ExpectedConditions.presenceOfElementLocated(nameFieldLocator));
+
+		By cityFieldLocator = By
+				.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input");
+		WebElement cityField = wait.until(ExpectedConditions.presenceOfElementLocated(cityFieldLocator));
+
+		By stateFieldLocator = By
+				.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input");
+		WebElement stateField = wait.until(ExpectedConditions.presenceOfElementLocated(stateFieldLocator));
+
+		By zipCodeFieldLocator = By
+				.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[3]/div/div[2]/input");
+		WebElement zipCodeField = wait.until(ExpectedConditions.presenceOfElementLocated(zipCodeFieldLocator));
+
+		By countryDropdownLocator = By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]");
+		WebElement countryDropdown = wait.until(ExpectedConditions.presenceOfElementLocated(countryDropdownLocator));
+
+		By phoneFieldLocator = By
+				.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[5]/div/div[2]/input");
+		WebElement phoneField = wait.until(ExpectedConditions.presenceOfElementLocated(phoneFieldLocator));
+
+		By addressFieldLocator = By
+				.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[7]/div/div[2]/textarea");
+		WebElement addressField = wait.until(ExpectedConditions.presenceOfElementLocated(addressFieldLocator));
+
 		nameField.sendKeys(name);
-
-		WebElement cityField = driver.findElement(By.id("location_city"));
 		cityField.sendKeys(city);
-
-		WebElement stateField = driver.findElement(By.id("location_state"));
 		stateField.sendKeys(state);
-
-		WebElement postalCodeField = driver.findElement(By.id("location_zipCode"));
-		postalCodeField.sendKeys(postalCode);
-
-		WebElement countryDropdown = driver.findElement(By.id("location_country"));
-		countryDropdown.click();
-
-		WebElement countryOption = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//div[@class='oxd-select-text-input' and text()='India']")));
-		countryOption.click();
-
-		WebElement phoneNumberField = driver.findElement(By.id("location_phone"));
-		phoneNumberField.sendKeys(phoneNumber);
-
-		WebElement addressField = driver.findElement(By.id("location_address"));
+		zipCodeField.sendKeys(postalCode);
+		phoneField.sendKeys(phoneNumber);
 		addressField.sendKeys(address);
 
-		WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"//button[@type='submit' and @class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space' and @data-v-10d463b7='']")));
-		saveButton.click();
+		countryDropdown.click();
+		WebElement countryOption = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//div[@class='oxd-dropdown']/div[contains(text(),'" + country + "')]")));
+		countryOption.click();
+
+		WebElement saveButton = driver
+				.findElement(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]"));
+		wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
 
 		log.info("Location added successfully.");
 	}
