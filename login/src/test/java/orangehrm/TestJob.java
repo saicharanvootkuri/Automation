@@ -10,9 +10,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TestLogin {
+public class TestJob {
 
-	private static final Logger log = Logger.getLogger(TestLogin.class.getName());
+	private static final Logger log = Logger.getLogger(TestJob.class.getName());
 
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.edge.driver", "C:\\Edgedriver\\msedgedriver.exe");
@@ -20,7 +20,7 @@ public class TestLogin {
 		WebDriver driver = new EdgeDriver();
 		login(driver);
 		navigateToJobTitlePage(driver);
-		addJobTitle(driver, "abc", "xyz");
+		addJobTitle(driver, "HR", "xyz");
 		Thread.sleep(5000);
 		driver.quit();
 	}
