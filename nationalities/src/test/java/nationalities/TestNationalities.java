@@ -19,7 +19,7 @@ public class TestNationalities {
 
 		WebDriver driver = new EdgeDriver();
 		login(driver);
-		navigateToJobTitlePage(driver);
+		navigateToNationalityPage(driver);
 		addNationality(driver, "Indian");
 		Thread.sleep(5000);
 		driver.quit();
@@ -48,7 +48,7 @@ public class TestNationalities {
 		log.info("Successfully logged in.");
 	}
 
-	private static void navigateToJobTitlePage(WebDriver driver) {
+	private static void navigateToNationalityPage(WebDriver driver) {
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/nationality");
 
 		log.info("Navigated to the Nationalities page.");

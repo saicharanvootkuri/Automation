@@ -19,8 +19,8 @@ public class EmploymentStatus {
 
 		WebDriver driver = new EdgeDriver();
 		login(driver);
-		navigateToJobTitlePage(driver);
-		addNationality(driver, "Internship");
+		navigateToEmploymentStatusPage(driver);
+		addEmploymentStatus(driver, "Internship");
 		Thread.sleep(5000);
 		driver.quit();
 	}
@@ -48,13 +48,13 @@ public class EmploymentStatus {
 		log.info("Successfully logged in.");
 	}
 
-	private static void navigateToJobTitlePage(WebDriver driver) {
+	private static void navigateToEmploymentStatusPage(WebDriver driver) {
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/employmentStatus");
 
 		log.info("Navigated to the Employment Status page.");
 	}
 
-	private static void addNationality(WebDriver driver, String employmentstatusName) {
+	private static void addEmploymentStatus(WebDriver driver, String employmentstatusName) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
 
 		WebElement addButton = wait.until(ExpectedConditions

@@ -19,8 +19,8 @@ public class PayGrades {
 
 		WebDriver driver = new EdgeDriver();
 		login(driver);
-		navigateToJobTitlePage(driver);
-		addNationality(driver, "Indian Rupee");
+		navigateToPayGradePage(driver);
+		addPayGrades(driver, "Indian Rupee");
 		Thread.sleep(5000);
 		driver.quit();
 	}
@@ -48,13 +48,13 @@ public class PayGrades {
 		log.info("Successfully logged in.");
 	}
 
-	private static void navigateToJobTitlePage(WebDriver driver) {
+	private static void navigateToPayGradePage(WebDriver driver) {
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewPayGrades");
 
 		log.info("Navigated to the PayGrades page.");
 	}
 
-	private static void addNationality(WebDriver driver, String paygradeName) {
+	private static void addPayGrades(WebDriver driver, String paygradeName) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
 
 		WebElement addButton = wait.until(ExpectedConditions
