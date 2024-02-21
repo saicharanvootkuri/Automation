@@ -1,4 +1,4 @@
-package orangehrm;
+package skills;
 
 import java.time.Duration;
 import java.util.logging.Logger;
@@ -10,9 +10,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TestJob {
+public class TestSkills {
 
-	private static final Logger log = Logger.getLogger(TestJob.class.getName());
+	private static final Logger log = Logger.getLogger(TestSkills.class.getName());
 
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.edge.driver", "C:\\Edgedriver\\msedgedriver.exe");
@@ -20,7 +20,7 @@ public class TestJob {
 		WebDriver driver = new EdgeDriver();
 		login(driver);
 		navigateToJobTitlePage(driver);
-		addJobTitle(driver, "Business analyst", "we do analysis ");
+		addSkill(driver, "MERN", "fullstack");
 		Thread.sleep(5000);
 		driver.quit();
 	}
@@ -49,33 +49,33 @@ public class TestJob {
 	}
 
 	private static void navigateToJobTitlePage(WebDriver driver) {
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewJobTitleList");
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSkills");
 
-		log.info("Navigated to the Job Titles page.");
+		log.info("Navigated to the skills page.");
 	}
 
-	private static void addJobTitle(WebDriver driver, String jobTitle, String jobDescription) {
+	private static void addSkill(WebDriver driver, String skillName, String skillDescription) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
 
-		WebElement addButton = wait
-				.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("button.oxd-button--medium")));
+		WebElement addButton = wait.until(ExpectedConditions
+				.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div[1]/div/button")));
 		wait.until(ExpectedConditions.elementToBeClickable(addButton)).click();
 
-		log.info("Navigated to the Add Job Title page.");
+		log.info("Navigated to the add skills page.");
 
-		WebElement jobTitleField = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("//div[@class='' and @data-v-957b4417='']//input[@class='oxd-input oxd-input--active']")));
-		jobTitleField.sendKeys(jobTitle);
+		WebElement skillNameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(
+				"div#app > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div > form > div:nth-child(1) > div > div:nth-child(2) > input")));
+		skillNameField.sendKeys(skillName);
 
-		WebElement jobDescriptionField = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("textarea.oxd-textarea--active")));
-		jobDescriptionField.sendKeys(jobDescription);
+		WebElement skillDescriptionField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.cssSelector("textarea.oxd-textarea.oxd-textarea--active.oxd-textarea--resize-vertical")));
+		skillDescriptionField.sendKeys(skillDescription);
 
-		WebElement saveButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space' and @data-v-10d463b7='']")));
+		WebElement saveButton = wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]")));
 		saveButton.click();
 
-		log.info("Job Title added successfully.");
+		log.info("skill added successfully.");
 	}
 
 }
