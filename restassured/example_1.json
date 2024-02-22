@@ -1,0 +1,34 @@
+{"example 1":
+  {
+    "fruit": "Apple",
+    "size": "Large",
+    "color": "Red"
+  },
+  "example 2":
+  {
+    "fruit": "Banana",
+    "size": "Large",
+    "color": "Yellow"
+  },
+
+  "example 3":
+  {
+    "fruit": "Mango",
+    "size": "Large",
+    "color": "Yellow"
+  },
+  "example 4":
+  {
+    "fruit": "guava",
+    "size": "Large",
+    "color": "Green"
+  },
+  "example 5":
+  {
+    "fruit": "Black berry",
+    "size": "Small",
+    "color": "Black"
+
+  }
+
+}

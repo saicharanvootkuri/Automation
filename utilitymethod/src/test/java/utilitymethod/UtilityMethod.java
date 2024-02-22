@@ -20,7 +20,7 @@ public class UtilityMethod {
         System.setProperty("webdriver.edge.driver", "C:\\Edgedriver\\msedgedriver.exe");
         WebDriver driver = new EdgeDriver();
 
-        String expectedPassword = "admin123";
+        String expectedPassword = "Max file size: 128 MB";
         boolean isPasswordMatching = extractAndComparePassword(driver, expectedPassword);
 
         if (isPasswordMatching) {
@@ -33,10 +33,10 @@ public class UtilityMethod {
     }
 
     private static boolean extractAndComparePassword(WebDriver driver, String expectedPassword) {
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login ");
+        driver.get("https://avepdf.com/paging-pdf");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement passwordElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/div[1]/div/p[2]")));
+        WebElement passwordElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[3]/div/div/div/div/div/div[3]/div/main/div[2]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div[2]")));
 
         String actualPassword = passwordElement.getText().trim();
 
