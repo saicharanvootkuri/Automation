@@ -8,7 +8,7 @@ public class TestSuite {
     }
 
     public void testSubtraction() {
-        assertEquals(2, 4 - 2); 
+        assertEquals(2, 4 - 4); 
     }
 
 }
