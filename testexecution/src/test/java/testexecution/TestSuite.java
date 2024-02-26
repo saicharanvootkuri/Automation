@@ -1,7 +1,8 @@
 package testexecution;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 public class TestSuite {
 
@@ -12,6 +13,6 @@ public class TestSuite {
 
     @Test
     public void testSubtraction() {
-        assertEquals(3, 4 - 4); 
+        assertEquals(6, 4 - 4);
     }
 }
