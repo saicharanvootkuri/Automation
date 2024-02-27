@@ -8,7 +8,7 @@ public class TestSuite {
 
     @Test
     public void testAddition() {
-        assertEquals(4, 2 + 2);  
+        assertEquals(6, 2 + 2);  
     }
 
     @Test
