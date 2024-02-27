@@ -8,7 +8,7 @@ public class TestSuite {
 
     @Test
     public void testAddition() {
-        assertEquals(6, 2 + 2);  
+        assertEquals(9, 2 + 2);  
     }
 
     @Test
@@ -18,7 +18,7 @@ public class TestSuite {
     
     @Test
     public void testmultiplication(){
-    	assertEquals(6, 2*3);
+    	assertEquals(9, 2*3);
     }
     
     @Test
