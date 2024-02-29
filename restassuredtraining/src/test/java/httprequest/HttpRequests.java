@@ -1,6 +1,8 @@
-package restassuredtraining;
+package httprequest;
 
 import static io.restassured.RestAssured.given;
+
+
 import static org.hamcrest.Matchers.equalTo;
 
 import java.util.HashMap;
@@ -24,7 +26,7 @@ public class HttpRequests {
 	@Test
 	void CreateUser() {
 
-		HashMap data = new HashMap();
+		HashMap<String, String> data = new HashMap<String, String>();
 		data.put("name", "pavan");
 		data.put("job", "trainer");
 
@@ -38,7 +40,7 @@ public class HttpRequests {
 	@Test // (dependsOnMethods= {"createUser"})
 	void UpdateUser() {
 
-		HashMap data = new HashMap();
+		HashMap<String, String> data = new HashMap<String, String>();
 		data.put("name", "john");
 		data.put("job", "teacher");
 

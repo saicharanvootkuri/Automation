@@ -1,0 +1,109 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "fruits": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "taste": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "color",
+              "taste"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "taste": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "color",
+              "taste"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "taste": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "color",
+              "taste"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "taste": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "color",
+              "taste"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "taste": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "color",
+              "taste"
+            ]
+          }
+        ]
+      }
+    },
+    "required": [
+      "fruits"
+    ]
+  }

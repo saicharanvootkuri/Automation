@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="restassuredtraining.HttpRequests">
+      <class name="authentications.OAuthAuthentication">
         <methods>
-          <include name="UpdateUser"/>
+          <include name="testOAuth1Authentication"/>
         </methods>
-      </class> <!-- restassuredtraining.HttpRequests -->
+      </class> <!-- authentications.OAuthAuthentication -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
