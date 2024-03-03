@@ -17,6 +17,7 @@ public class FakerDataGenerator {
 		String firstname=faker.name().firstName();
 		String lastname=faker.name().lastName();
 		
+		
 		String username=faker.name().username();
 		String password=faker.internet().password();
 		

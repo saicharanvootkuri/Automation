@@ -17,8 +17,8 @@ public class BrokenLinks {
 		System.setProperty("webdriver.chrome.driver", "C:\\webdriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-
-		driver.get("https://demo.guru99.com/test/newtours/");
+//link for browsing
+		driver.get("https://cbit.ac.in");
 
 		List<WebElement> allLinks = driver.findElements(By.tagName("a"));
 		log.info("Total links on the web page: " + allLinks.size());
