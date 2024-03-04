@@ -10,7 +10,7 @@ public class FakerDataGenerator {
 	private static final Logger log = Logger.getLogger(FakerDataGenerator.class.getName());
 	@Test
 	void testGenerateData() {
-		
+		//faker
 		Faker faker=new Faker();
 		
 		String fullname=faker.name().fullName();
