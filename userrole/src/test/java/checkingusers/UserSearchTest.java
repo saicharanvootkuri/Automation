@@ -24,7 +24,7 @@ public class UserSearchTest {
 	public void setUp() {
 		System.setProperty("webdriver.chrome.driver", "C:\\webdriver\\chromedriver.exe");
 		driver = new ChromeDriver();
-	}
+	}   
 
 	@Test
 	public void testUserSearch() throws InterruptedException {
