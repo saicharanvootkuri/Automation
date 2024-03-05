@@ -32,7 +32,6 @@ public class PermissionAccess{
     }
 
 	private static void verifyAccessPermissions(WebDriver driver2, String string) {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="permissionandroles.PermissionAccess">
+      <class name="checkingusers.UserSearchTest">
         <methods>
-          <include name="testAdminUserRole"/>
           <include name="tearDown"/>
-          <include name="setup"/>
+          <include name="testUserSearch"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- permissionandroles.PermissionAccess -->
+      </class> <!-- checkingusers.UserSearchTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-05T12:38:35 IST" name="Default suite" finished-at="2024-03-05T12:38:55 IST" duration-ms="20367">
+  <suite started-at="2024-03-05T15:29:30 IST" name="Default suite" finished-at="2024-03-05T15:29:53 IST" duration-ms="22820">
     <groups>
     </groups>
-    <test started-at="2024-03-05T12:38:35 IST" name="Default test" finished-at="2024-03-05T12:38:55 IST" duration-ms="20367">
-      <class name="permissionandroles.PermissionAccess">
-        <test-method is-config="true" signature="setup()[pri:0, instance:permissionandroles.PermissionAccess@67c27493]" started-at="2024-03-05T12:38:35 IST" name="setup" finished-at="2024-03-05T12:38:38 IST" duration-ms="2567" status="PASS">
+    <test started-at="2024-03-05T15:29:30 IST" name="Default test" finished-at="2024-03-05T15:29:53 IST" duration-ms="22820">
+      <class name="checkingusers.UserSearchTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:checkingusers.UserSearchTest@5b8dfcc1]" started-at="2024-03-05T15:29:30 IST" name="setUp" finished-at="2024-03-05T15:29:31 IST" duration-ms="1311" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testAdminUserRole()[pri:0, instance:permissionandroles.PermissionAccess@67c27493]" started-at="2024-03-05T12:38:38 IST" name="testAdminUserRole" finished-at="2024-03-05T12:38:55 IST" duration-ms="17333" status="PASS">
+        </test-method> <!-- setUp -->
+        <test-method signature="testUserSearch()[pri:0, instance:checkingusers.UserSearchTest@5b8dfcc1]" started-at="2024-03-05T15:29:31 IST" name="testUserSearch" finished-at="2024-03-05T15:29:52 IST" duration-ms="21298" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAdminUserRole -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:permissionandroles.PermissionAccess@67c27493]" started-at="2024-03-05T12:38:55 IST" name="tearDown" finished-at="2024-03-05T12:38:55 IST" duration-ms="350" status="PASS">
+        </test-method> <!-- testUserSearch -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:checkingusers.UserSearchTest@5b8dfcc1]" started-at="2024-03-05T15:29:52 IST" name="tearDown" finished-at="2024-03-05T15:29:53 IST" duration-ms="180" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- permissionandroles.PermissionAccess -->
+      </class> <!-- checkingusers.UserSearchTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
