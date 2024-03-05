@@ -1,123 +1,126 @@
 package permissionandroles;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreatingUserRole {
 
-	private static final Logger log = Logger.getLogger(CreatingUserRole.class.getName());
+    private static final Logger log = Logger.getLogger(CreatingUserRole.class.getName());
+    private WebDriver driver;
 
-	public static void main(String[] args) {
-		System.setProperty("webdriver.chrome.driver", "C:\\webdriver\\chromedriver.exe");
+    public CreatingUserRole(WebDriver driver) {
+        this.driver = driver;
+    }
 
-		WebDriver driver = new ChromeDriver();
+    public void login() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		login(driver);
-		navigateToAddUserPage(driver);
-		addUser(driver, "Admin", "sai charan", "Disabled", "saicharanreddy", "Password123", "Password123");
+        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login ");
+        driver.manage().window().maximize();
 
-		try {
-			TimeUnit.SECONDS.sleep(20);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} finally {
-			driver.quit();
-		}
-	}
+        String username = "Admin";
+        String password = "admin123";
 
-	private static void login(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement usernameField = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//input[contains(@class, 'oxd-input')][@name='username']")));
+        WebElement passwordField = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//input[contains(@class, 'oxd-input')][@name='password']")));
+        WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[contains(@class, 'orangehrm-login-button')]")));
 
-		// Navigate to the OrangeHRM login page
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login ");
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password);
+        loginButton.click();
+        log.info("Successfully logged in OrangeORM webpage!!");
+    }
 
-		driver.manage().window().maximize();
+    public void navigateToAddUserPage() {
+        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers");
+        log.info("Navigated to the Add User page.");
+    }
 
-		// Input-login credentials
-		String username = "Admin";
-		String password = "admin123";
+    public void addUser(String userRole, String partialEmployeeName, String status,
+                        String username, String password, String confirmPassword) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-		// Locate web-elements through xpath
-		WebElement usernameField = wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.xpath("//input[contains(@class, 'oxd-input')][@name='username']")));
-		WebElement passwordField = wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.xpath("//input[contains(@class, 'oxd-input')][@name='password']")));
-		WebElement loginButton = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//button[contains(@class, 'orangehrm-login-button')]")));
+        WebElement addButton = wait.until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div[2]/div[1]/button")));
+        wait.until(ExpectedConditions.elementToBeClickable(addButton)).click();
 
-		usernameField.sendKeys(username);
-		passwordField.sendKeys(password);
-		loginButton.click();
-		log.info("Successfully logged in OrangeORM webpage !!");
-	}
+        WebElement userRoleDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+                "/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div/div[1]")));
+        userRoleDropdown.click();
+        WebElement userRoleOption = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(), '" + userRole + "')]")));
+        userRoleOption.click();
 
-	private static void navigateToAddUserPage(WebDriver driver) {
-		// Navigate to the Add User page
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers");
+        WebElement employeeNameField = wait.until(ExpectedConditions.elementToBeClickable(By
+                .xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input")));
+        employeeNameField.sendKeys(partialEmployeeName);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
 
-		log.info("Navigated to the Add User page.");
-	}
+        WebElement statusDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+                "/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div/div[1]")));
+        statusDropdown.click();
+        WebElement statusOption = wait
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(), '" + status + "')]")));
+        statusOption.click();
 
-	private static void addUser(WebDriver driver, String userRole, String partialEmployeeName, String status,
-			String username, String password, String confirmPassword) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement usernameField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input")));
+        usernameField.sendKeys(username);
 
-		// Locate elements using XPath
-		WebElement addButton = wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div[2]/div[1]/button")));
-		wait.until(ExpectedConditions.elementToBeClickable(addButton)).click();
+        WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input")));
+        passwordField.sendKeys(password);
 
-		WebElement userRoleDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div/div[1]")));
-		userRoleDropdown.click();
-		WebElement userRoleOption = wait.until(
-				ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(), '" + userRole + "')]")));
-		userRoleOption.click();
+        WebElement confirmPasswordField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input")));
+        confirmPasswordField.sendKeys(confirmPassword);
 
-		WebElement employeeNameField = wait.until(ExpectedConditions.elementToBeClickable(By
-				.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input")));
-		employeeNameField.sendKeys(partialEmployeeName);
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Actions actions = new Actions(driver);
-		actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+        WebElement saveButton = wait.until(ExpectedConditions
+                .elementToBeClickable(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]")));
+        saveButton.click();
 
-		WebElement statusDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div/div[1]")));
-		statusDropdown.click();
-		WebElement statusOption = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(), '" + status + "')]")));
-		statusOption.click();
+        log.info("User added successfully.");
+    }
 
-		WebElement usernameField = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input")));
-		usernameField.sendKeys(username);
+    public void verifyAdminAccess() {
+        // Add the actual verification steps for Admin role
+        WebElement adminElement = waitForElement(By.xpath("//div[@class='admin-specific-element']"));
+        // Perform additional verifications if needed
+        log.info("Access verified for Admin role.");
+    }
 
-		WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input")));
-		passwordField.sendKeys(password);
+    public void verifyOtherRoleAccess() {
+        // Add the actual verification steps for OtherRole
+        WebElement otherRoleElement = waitForElement(By.xpath("//div[@class='other-role-specific-element']"));
+        // Perform additional verifications if needed
+        log.info("Access verified for OtherRole.");
+    }
 
-		WebElement confirmPasswordField = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input")));
-		confirmPasswordField.sendKeys(confirmPassword);
+    private WebElement waitForElement(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
 
-		WebElement saveButton = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]")));
-		saveButton.click();
-
-		log.info("User added successfully.");
-	}
+    public void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
