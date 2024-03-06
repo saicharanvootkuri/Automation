@@ -20,7 +20,7 @@ public class UserSearchTest {
 	private static final Logger log = Logger.getLogger(UserSearchTest.class.getName());
 	private WebDriver driver;
 
-	@BeforeClass
+	@BeforeClass 
 	public void setUp() {
 		System.setProperty("webdriver.chrome.driver", "C:\\webdriver\\chromedriver.exe");
 		driver = new ChromeDriver();
