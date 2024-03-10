@@ -67,10 +67,8 @@ public class UserSearchTest {
 			throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		// Navigate to the User Search page
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers");
 
-		// Locate and fill the search fields
 		WebElement usernameSearchField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
 				"/html/body/div/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input")));
 		usernameSearchField.sendKeys(username);

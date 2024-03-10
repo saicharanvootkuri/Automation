@@ -100,13 +100,11 @@ public class CreatingUserRole {
     }
 
     public void verifyAdminAccess() {
-        // Add the actual verification steps for Admin role
         WebElement adminElement = waitForElement(By.xpath("//div[@class='admin-specific-element']"));
         log.info("Access verified for Admin role.");
     }
 
     public void verifyOtherRoleAccess() {
-        // Add the actual verification steps for ESSRole
         WebElement otherRoleElement = waitForElement(By.xpath("//div[@class='other-role-specific-element']"));
         log.info("Access verified for ESS Role.");
     }
