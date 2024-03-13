@@ -28,7 +28,7 @@ public class LocationTestAutomation extends TestUtilsMethod {
 		By Locator = By.xpath("/html/body/div/div[2]");
 		WebElement toastMessage = wait.until(ExpectedConditions.presenceOfElementLocated(Locator));
 		AssertJUnit.assertTrue(toastMessage.isDisplayed());
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 	}
 
 	@Test

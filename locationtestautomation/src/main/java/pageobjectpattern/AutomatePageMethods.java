@@ -2,11 +2,9 @@ package pageobjectpattern;
 
 
 import java.time.Duration;
-import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -37,13 +35,16 @@ public class AutomatePageMethods extends TestUtilsMethod {
 	            By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[3]/div/div[2]/input")));
 	    zipCodeField.sendKeys(locationzipCode);
 	    
-	    String  locationcountry= config.getProperty("addName.locationcountry");
-	    WebElement countryDropdown = wait.until(ExpectedConditions.elementToBeClickable(
-	            By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[4]/div/div[2]/div/div")));
-	    countryDropdown.click();
-	    WebElement country = wait.until(
-	            ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(), '" + locationcountry + "')]")));
-	    country.click();
+	   
+
+		WebElement userRoleDropdown = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[4]/div/div[2]/div/div")));
+		userRoleDropdown.click();
+		WebElement userRoleOption = wait.until(ExpectedConditions.presenceOfElementLocated(
+				   By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[4]/div/div[2]/div/div/div[5]")));
+		userRoleOption.click();
+
+
 	    
 //	    
 //	    String phoneno = config.getProperty("addName.locationName");
@@ -69,30 +70,34 @@ public class AutomatePageMethods extends TestUtilsMethod {
 	    String editlocationName = config.getProperty("addName.editlocationName");
 	    WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(
 	            By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/input")));
+	    nameField.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
 	    nameField.sendKeys(editlocationName);
 	    
 	    String editlocationcity = config.getProperty("addName.editlocationcity");
 	    WebElement cityField = wait.until(ExpectedConditions.visibilityOfElementLocated(
 	            By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input")));
+	    nameField.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
 	    cityField.sendKeys(editlocationcity);
 	    
 	    String editlocationstate = config.getProperty("addName.editlocationstate");
 	    WebElement stateField = wait.until(ExpectedConditions.visibilityOfElementLocated(
 	            By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input")));
+	    nameField.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
 	    stateField.sendKeys(editlocationstate);
 	    
 	    String editlocationzipCode= config.getProperty("addName.editlocationzipCode");
 	    WebElement zipCodeField = wait.until(ExpectedConditions.visibilityOfElementLocated(
 	            By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[3]/div/div[2]/input")));
+	    nameField.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
 	    zipCodeField.sendKeys(editlocationzipCode);
 	    
-	    String  editlocationcountry= config.getProperty("addName.editlocationcountry");
-	    WebElement countryDropdown = wait.until(ExpectedConditions.elementToBeClickable(
-	            By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[4]/div/div[2]/div/div")));
-	    countryDropdown.click();
-	    WebElement country = wait.until(
-	            ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(), '" + editlocationcountry + "')]")));
-	    country.click();
+	    WebElement userRoleDropdown = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[4]/div/div[2]/div/div")));
+		userRoleDropdown.click();
+		WebElement userRoleOption = wait.until(ExpectedConditions.presenceOfElementLocated(
+				   By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[4]/div/div[2]/div/div/div[4]")));
+		nameField.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+		userRoleOption.click();
 	    
 //	    
 //	    String phoneno = config.getProperty("addName.locationName");
