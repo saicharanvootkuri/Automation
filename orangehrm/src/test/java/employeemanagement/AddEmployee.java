@@ -27,8 +27,6 @@ public class AddEmployee {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         login(driver);
-
-        // Additional steps after login
         redirectToSystemUsersPage(driver);
         clickAddButton(driver);
         fillSystemUserDetails(driver);
