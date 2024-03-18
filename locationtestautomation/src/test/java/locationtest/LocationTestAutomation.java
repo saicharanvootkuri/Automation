@@ -21,7 +21,7 @@ public class LocationTestAutomation extends TestUtilsMethod {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement addButton = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div[2]/div[1]/div/button")));
+				.elementToBeClickable(By.xpath("//button[normalize-space()='Add']")));
 		addButton.click();
 
 		AutomatePageMethods.addDataToLocationsPage();
@@ -37,7 +37,7 @@ public class LocationTestAutomation extends TestUtilsMethod {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement editButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"/html/body/div/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[1]/div/div[7]/div/button[2]")));
+				"//i[@class='oxd-icon bi-pencil-fill']")));
 		editButton.click();
 		AutomatePageMethods.editDataToLocationPage();
 
@@ -53,7 +53,7 @@ public class LocationTestAutomation extends TestUtilsMethod {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement deleteButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"/html/body/div/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[1]/div/div[7]/div/button[1]")));
+				"//i[@class='oxd-icon bi-trash']")));
 		deleteButton.click();
 
 		WebElement popUpElement = driver.findElement(By.xpath("/html/body/div/div[3]/div/div/div/div[3]/button[2]"));

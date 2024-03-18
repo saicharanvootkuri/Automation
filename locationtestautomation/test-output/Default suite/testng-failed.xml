@@ -6,8 +6,8 @@
       <class name="locationtest.LocationTestAutomation">
         <methods>
           <include name="launchBrowser"/>
+          <include name="addLocationstest"/>
           <include name="closingBrowser"/>
-          <include name="editlocationstest"/>
         </methods>
       </class> <!-- locationtest.LocationTestAutomation -->
     </classes>

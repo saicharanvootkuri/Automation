@@ -35,11 +35,11 @@ public class OrangeHRMAutoLogin {
 		String password = config.getProperty("login.password");
 
 		WebElement usernameField = wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.xpath("//input[contains(@class, 'oxd-input')][@name='username']")));
+				.presenceOfElementLocated(By.xpath("//input[@placeholder='Username']")));
 		WebElement passwordField = wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.xpath("//input[contains(@class, 'oxd-input')][@name='password']")));
+				.presenceOfElementLocated(By.xpath("//input[@placeholder='Password']")));
 		WebElement loginButton = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//button[contains(@class, 'orangehrm-login-button')]")));
+				.elementToBeClickable(By.xpath("//button[@type='submit']")));
 
 		usernameField.sendKeys(username);
 		passwordField.sendKeys(password);

@@ -21,7 +21,7 @@ public class SkillsTestAutomation extends TestUtilsMethod {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement addButton = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/div[1]/div/button")));
+				.elementToBeClickable(By.xpath("//i[@class='oxd-icon bi-plus oxd-button-icon']")));
 		addButton.click();
 
 		AutomatePageMethods.addDataToSkillsPage();
@@ -37,7 +37,7 @@ public class SkillsTestAutomation extends TestUtilsMethod {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement editButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"/html/body/div/div[1]/div[2]/div[2]/div/div/div[3]/div/div[2]/div[1]/div/div[4]/div/button[2]")));
+				"//div[@class='oxd-layout-context']//div[2]//div[1]//div[1]//div[1]//div[2]//div[1]//div[1]//button[2]//i[1]")));
 		editButton.click();
 		AutomatePageMethods.editSkillsDataPage();
 
@@ -53,7 +53,7 @@ public class SkillsTestAutomation extends TestUtilsMethod {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement deleteButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"/html/body/div/div[1]/div[2]/div[2]/div/div/div[3]/div/div[2]/div[1]/div/div[4]/div/button[1]")));
+				"//div[@role='rowgroup']//div[1]//div[1]//div[1]//div[1]//div[2]//div[1]//div[1]//button[1]//i[1]")));
 		deleteButton.click();
 
 		WebElement popUpElement = driver.findElement(By.xpath("/html/body/div/div[3]/div/div/div/div[3]/button[2]"));

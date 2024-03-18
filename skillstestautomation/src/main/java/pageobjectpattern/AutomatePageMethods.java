@@ -28,7 +28,7 @@ public class AutomatePageMethods extends TestUtilsMethod {
 		
 
 		WebElement saveButton = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]")));
+				.elementToBeClickable(By.xpath("//button[@type='submit']")));
 		saveButton.click();
 
 		Thread.sleep(3000);
@@ -51,7 +51,7 @@ public class AutomatePageMethods extends TestUtilsMethod {
 		nameField.sendKeys(editskillDescription);
 
 		WebElement saveButton = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]")));
+				.elementToBeClickable(By.xpath("//button[@type='submit']")));
 		saveButton.click();
 
 		Thread.sleep(3000);
