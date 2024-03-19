@@ -16,18 +16,10 @@ import com.commonutils.TestUtilsMethod;
 import com.pageobjectpattern.IndividualTabMethods;
 import com.pageobjectpattern.NavigationTabMethods;
 
-/*
- * Section : OrangeHRM - Time/Reports/AttendanceReportSummary
- * Description :  This class contains test cases to verify that the user's attendance is correctly reflected in reports.
- * 
- */
-
 public class AttendanceReportsValidationTest extends TestUtilsMethod {
 	private static final Logger log = Logger.getLogger(AttendanceReportsValidationTest.class.getName());
 
-	/* 
-	 * Test to verify successful navigation to the Attendance Report tab. 
-	 */
+	
 	@Test
 	public void testNavigationToAttendancReporttab() {
 		NavigationTabMethods.navigationToAttendanceReporttab();
@@ -41,10 +33,7 @@ public class AttendanceReportsValidationTest extends TestUtilsMethod {
 
 	}
 
-	/*  
-	 *   Test to verify the process of entering employee details, date and displaying the reports. 
-	 *   Asserts the presence of a toast message indicating a successful operation.
-	 */
+	
 	@Test
 	public void testToShowUserAttendanceReport() throws InterruptedException {
 		NavigationTabMethods.navigationToAttendanceReporttab();
@@ -58,10 +47,6 @@ public class AttendanceReportsValidationTest extends TestUtilsMethod {
 
 	}
 
-	/*
-	 *  Test to verify user's actual attendance (Total time hours) is Correctly reflected in Reports or not
-	 *  Asserts the equality between the user's actual attendance and the displayed attendance in the report.
-	 */
 	@Test
 	public void testToVerifyUserAttendanceInReports() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -97,10 +82,7 @@ public class AttendanceReportsValidationTest extends TestUtilsMethod {
 
 	}
 
-	/*
-	 *  Test to verify that the user's name in the report matches the actual user name.
-	 *  Asserts the equality between the actual user name and the displayed user name in the report..
-	 */
+	
 	@Test
 	public void testToVerifyUserNameInReports() throws InterruptedException {
 		NavigationTabMethods.navigationToAttendanceReporttab();
