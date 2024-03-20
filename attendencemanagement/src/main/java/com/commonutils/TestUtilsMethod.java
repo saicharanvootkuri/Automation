@@ -65,8 +65,8 @@ public class TestUtilsMethod {
 
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshotFile,
-				new File("C:\\Users\\LENOVO\\Downloads\\TestFailSnaps\\" + screenshotFilename + ".png"));
-		log.info("Screenshot captured and saved at: C:\\Users\\LENOVO\\Downloads\\TestFailSnaps" + screenshotFilename
+				new File("C:\\Users\\Admin\\Downloads\\TestFailSnaps\\" + screenshotFilename + ".png"));
+		log.info("Screenshot captured and saved at: C:\\Users\\Admin\\Downloads\\TestFailSnaps" + screenshotFilename
 				+ ".png");
 	}
 
