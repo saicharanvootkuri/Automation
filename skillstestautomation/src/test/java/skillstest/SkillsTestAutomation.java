@@ -37,7 +37,7 @@ public class SkillsTestAutomation extends TestUtilsMethod {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement editButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"//div[@class='oxd-layout-context']//div[2]//div[1]//div[1]//div[1]//div[2]//div[1]//div[1]//button[2]//i[1]")));
+				"//div[@class='oxd-layout-context']//div[2]//button[2]//i[1]")));
 		editButton.click();
 		AutomatePageMethods.editSkillsDataPage();
 
@@ -53,7 +53,7 @@ public class SkillsTestAutomation extends TestUtilsMethod {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement deleteButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"//div[@role='rowgroup']//div[1]//div[1]//div[1]//div[1]//div[2]//div[1]//div[1]//button[1]//i[1]")));
+				"//i[contains(@class, 'oxd-icon') and contains(@class, 'bi-trash')]")));
 		deleteButton.click();
 
 		WebElement popUpElement = driver.findElement(By.xpath("/html/body/div/div[3]/div/div/div/div[3]/button[2]"));

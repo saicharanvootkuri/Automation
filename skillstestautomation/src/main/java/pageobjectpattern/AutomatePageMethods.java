@@ -17,13 +17,13 @@ public class AutomatePageMethods extends TestUtilsMethod {
 
 		String skillsName = config.getProperty("addName.skillsName");
 		WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/input")));
+				By.xpath("//form/div[1]/div/div[2]/input")));
 		nameField.sendKeys(skillsName);
 		
 
 		String skillsDescription = config.getProperty("addName.skillsDescription");
 		WebElement nameField1 = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/textarea")));
+				By.xpath("//form/div[2]//textarea")));
 		nameField1.sendKeys(skillsDescription);
 		
 
@@ -40,13 +40,13 @@ public class AutomatePageMethods extends TestUtilsMethod {
 		String editskillName = config.getProperty("addName.editskillName");
 
 		WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/input")));
+				By.xpath("//form/div[1]/div/div[2]/input")));
 		nameField.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
 		nameField.sendKeys(editskillName);
 		
 		String editskillDescription = config.getProperty("addName.editskillDescription");
 		WebElement nameField1 = wait.until(ExpectedConditions.visibilityOfElementLocated(
-				By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/textarea")));
+				By.xpath("//form/div[2]//textarea")));
 		nameField.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
 		nameField.sendKeys(editskillDescription);
 
