@@ -21,7 +21,7 @@ public class LocationTestAutomation extends TestUtilsMethod {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement addButton = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//button[normalize-space()='Add']")));
+				.elementToBeClickable(By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div[2]/div[1]/div/button")));
 		addButton.click();
 
 		AutomatePageMethods.addDataToLocationsPage();
