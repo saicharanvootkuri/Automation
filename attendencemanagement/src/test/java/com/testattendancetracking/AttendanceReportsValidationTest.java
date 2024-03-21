@@ -31,9 +31,7 @@ public class AttendanceReportsValidationTest extends TestUtilsMethod {
 
 		AssertJUnit.assertEquals(pageTitle.getText(), "Attendance Total Summary Report");
 
-	}
-
-	
+	}	
 	@Test
 	public void testToShowUserAttendanceReport() throws InterruptedException {
 		NavigationTabMethods.navigationToAttendanceReporttab();
@@ -46,7 +44,6 @@ public class AttendanceReportsValidationTest extends TestUtilsMethod {
 		AssertJUnit.assertTrue(toastMessage.isDisplayed());
 
 	}
-
 	@Test
 	public void testToVerifyUserAttendanceInReports() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -81,8 +78,6 @@ public class AttendanceReportsValidationTest extends TestUtilsMethod {
 		}
 
 	}
-
-	
 	@Test
 	public void testToVerifyUserNameInReports() throws InterruptedException {
 		NavigationTabMethods.navigationToAttendanceReporttab();

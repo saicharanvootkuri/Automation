@@ -31,7 +31,6 @@ public class TestUtilsMethod {
 		}
 	}
 
-	// Setup method to launch the browser before the test suite
 	@BeforeSuite
 	public void launchBrowser() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", config.getProperty("webdriver.chrome.driver"));
@@ -43,18 +42,15 @@ public class TestUtilsMethod {
 
 	}
 
-	// Teardown method to close the browser after the test suite
 	@AfterSuite
 	public void closingBrowser() {
 		driver.quit();
 		log.info("Closing the browser...");
 	}
 
-	// Method to capture a screenshot
 	public void getScreenshot() throws IOException {
 		Date currentDate = new Date();
 
-		// Format the date and time to create a unique filename (converted Date object to string)
 		String screenshotFilename = currentDate.toString().replace(" ", "_").replace(":", "-");
 
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
