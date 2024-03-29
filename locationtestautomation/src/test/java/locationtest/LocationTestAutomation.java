@@ -30,7 +30,6 @@ public class LocationTestAutomation extends TestUtilsMethod {
 		AssertJUnit.assertTrue(toastMessage.isDisplayed());
 		Thread.sleep(1000);
 	}
-
 	@Test
 	private static void editlocationstest() throws InterruptedException {
 		NavigationTabMethods.navigationToLocationsPage();
@@ -46,7 +45,6 @@ public class LocationTestAutomation extends TestUtilsMethod {
 		AssertJUnit.assertTrue(toastMessage.isDisplayed());
 		Thread.sleep(3000);
 	}
-
 	@Test
 	private static void deletelocationstest() throws InterruptedException {
 		NavigationTabMethods.navigationToLocationsPage();
