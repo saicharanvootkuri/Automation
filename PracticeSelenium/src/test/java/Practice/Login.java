@@ -53,19 +53,15 @@ public class Login {
 		log.info("Username: " + username);
 		log.info("Password: " + password);
 		
-		// Switch to the new window or tab
 				for (String handle : driver.getWindowHandles()) {
 				    driver.switchTo().window(handle);
 				}
 
-				// Wait for the new page to load
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); 
 				wait.until(ExpectedConditions.urlContains("angularpractice/shop"));
 
-				// Get the current URL of the page after redirection
 				String redirectedURL = driver.getCurrentUrl();
 
-				// Print the redirected URL to the console
 				log.info("Redirected URL: " + redirectedURL);
 		
 	
