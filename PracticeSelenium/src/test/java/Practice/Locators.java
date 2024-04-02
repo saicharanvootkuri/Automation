@@ -2,17 +2,16 @@ package Practice;
 
 import java.time.Duration;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Locators {
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.edge.driver", "C:\\Edgedriver\\msedgedriver.exe");
-
-		WebDriver driver = new EdgeDriver();
-
+		System.setProperty("webdriver.chrome.driver", "C:\\webdriver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
